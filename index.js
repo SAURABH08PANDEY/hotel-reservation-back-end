@@ -12,8 +12,12 @@ app.get("/", (req, res) => {
   res.send("Home Page");
 });
 
-app.use("/api/v1", bookingRouter);
 
+
+app.use("/api/v1", bookingRouter);
+app.get("*", (req, res) => {
+  res.status(404).json({ message: "Route not found" });
+});
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URL);
