@@ -10,7 +10,7 @@ app.use(express.json());
 const bookingRouter = require('./routes/bookingRoutes');
 
 app.get('/', (req, res) => {
-    res.json({message: 'Home Page'})
+    res.send( 'Home Page')
 })
 
 app.use('/api/v1',bookingRouter )
