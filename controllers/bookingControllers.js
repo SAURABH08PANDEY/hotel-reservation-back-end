@@ -24,7 +24,7 @@ const createBooking = async (req, res) => {
   });
   
   if (bookings.length > 0) {
-    return res.json({ message: "This room is not available for this date and time" });
+    return res.json({error:401, message: "This room is not available for this date and time" });
     
   }
 
@@ -42,7 +42,7 @@ const createBooking = async (req, res) => {
     roomNumber
   });
 
-  res.json({ message: booking });
+  res.json({error:201, message: "Room Booked Successfully" });
 };
 
 const getBookings = async (req, res) => {
@@ -73,7 +73,7 @@ const updateBooking = async (req, res) => {
 const deleteBooking = async (req, res) => {
   const { id } = req.body;
   const booking = await Booking.deleteOne({ _id: id });
-  res.json({ message: booking });
+  res.json({error:201, message: "Booking deleted successfully" });
 };
 
 
