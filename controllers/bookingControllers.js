@@ -67,7 +67,7 @@ const updateBooking = async (req, res) => {
       roomNumber,
     }
   );
-  res.json({ message: booking });
+  res.json({ error:201, message: "Booking details updated successfully" });
 };
 
 const deleteBooking = async (req, res) => {
